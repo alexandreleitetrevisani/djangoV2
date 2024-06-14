@@ -1,6 +1,6 @@
 FROM postgres:13.1-alpine
-LABEL maintainer "Alex Trevis <leitetrevisani@gmail.com>"
-ENV POSTGRES_USER=alextrevis
-ENV POSTGRES_PASSWORD=university
-ENV POSTGRES_DB=fusion
+LABEL maintainer "Geek University <contato@geekuniversity.com.br>"
+ENV POSTGRES_USER=./docker/.env
+ENV POSTGRES_PASSWORD=./docker/.env
+ENV POSTGRES_DB=./docker/.env
 EXPOSE 5432

@@ -23,7 +23,9 @@ services:
     image: alextrevis/pgfusion:v1
     container_name: pgfusion
     ports:
-      - "5432"
+      - "5432:5432"
+    env_file:
+      - ./.env  
     networks:
       - nwfusion
     volumes:
@@ -67,6 +69,19 @@ services:
       - nwfusion
     depends_on:
       - pgfusion
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    env_file:
+      - ./.env
+    ports:
+      - 15432:80
+    networks:
+      - nwfusion  
+    depends_on:
+      - pgfusion    
+
 
 networks:
   nwfusion:
@@ -74,4 +89,3 @@ networks:
 
 volumes:
   pgdata:
- 
